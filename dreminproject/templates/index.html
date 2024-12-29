@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/main.js' %}" defer></script>
+</head>
+<body>
+    <div class="form" id="form">
+        <div class="container">
+            <div class="form-wrapper">
+                <form method="post" id="form-box" class="form-box"> 
+                    {% csrf_token %}
+                    <span class="form-question">Как бы вы отреагировали, если бы потеряли часть денег, вложенных в инвестиции?</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1" value="1" required>
+                        <label class="radio-label-1" for="ans1">A) Это было бы для меня очень плохо, я не хочу терять деньги.</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans2" value="2" required>
+                        <label class="radio-label-2" for="ans2">B) Я был бы расстроен, но это не критично.</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans3" value="3" required>
+                        <label class="radio-label-3" for="ans3">C) Я готов рискнуть и потерять часть денег ради возможности заработать больше.</label>
+                    </div>
+                    <button class="button button-submit" type="submit">Отправить</button>
+                    <span class="btn btn-prev"><</span>
+                    <span class="btn btn-next">></span>
+                    <span class="button button-next">Далее</span>
+                </form>
+                <script src="https://code.jquery.com/jquery-3.5.1.js" 
+                      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
+                        crossorigin="anonymous"></script> 
+                <script type="text/javascript"> 
+                    formData = [
+                        [
+                            'Как бы вы отреагировали, если бы потеряли часть денег, вложенных в инвестиции?',
+                            'A) Это было бы для меня очень плохо, я не хочу терять деньги.',
+                            'B) Я был бы расстроен, но это не критично.',
+                            'C) Я готов рискнуть и потерять часть денег ради возможности заработать больше.',
+                        ],
+                        [
+                            'Какой процент от сбережений планируете инвестировать?', 
+                            'A) от 60% до 85%',
+                            'B)от 40% до 60%',
+                            'C) от 15%до 40%',
+                            'D) до 15%',
+                        ],
+                        [
+                            'Как бы вы поступили, если кто-то предложил вам инвестицию с обещанием очень высокой прибыли, но с риском потерять все деньги?', 
+                            'A) Я бы сразу отказался, потому что такой риск для меня неприемлем.',
+                            'B) Я бы поинтересовался, но очень осторожно подошел бы к такому предложению.',
+                            'C) Я бы согласился, если шанс на большую прибыль действительно высок.',
+                        ],
+                        [
+                            'Как бы вы оценили свои знания в теме инвестиций?', 
+                            'A) Я совсем не разбираюсь в инвестициях и не знаю, с чего начать.',
+                            'B) У меня есть базовые знания, но я не уверен, как это работает на практике.',
+                            'C) Я немного разбираюсь в инвестициях, но мне нужно больше информации, чтобы чувствовать себя уверенно.',
+                            'D) Я знаком с основами и готов начать инвестировать, хотя и не эксперт в этой области.',
+                        ],
+                        [
+                            'При принятие решений вы часто пологаетесь на эмоции?', 
+                            'А) Да, не редко принимаю решения исходя из эмоций.',
+                            'B) Периодически принимаю решения исходя из эмоций.',
+                            'C) Нет, всегда стараюсь принимать решения осознанно.',
+                        ],
+                        [
+                            'Следите ли вы за финансовыми новостями?', 
+                            'А) Нет.',
+                            'B) Изредко.',
+                            'C) Да.',
+                        ],
+                    ];
+                    let c = 1;
+                    let answers = []
+                    document.querySelector('.button-next').addEventListener('click', ()=>{
+                        document.querySelector('.form-question').innerHTML = formData[c][0];
+                        document.querySelector('.radio-label-1').innerHTML = formData[c][1];
+                        document.querySelector('.radio-label-2').innerHTML = formData[c][2];
+                        document.querySelector('.radio-label-3').innerHTML = formData[c][3];
+                        c += 1;
+                        answers.push(document.querySelector('input[name="ans"]:checked').value)
+                        if (c == 6){
+                            document.querySelector('.button-next').style.display = 'none';
+                            document.querySelector('.button-submit').style.display = 'block';
+                        }
+                    });
+                    console.log(answers)
+                    $(document).on('submit','#form-box',function(e){ 
+                        e.preventDefault(); 
+                        answers.push(document.querySelector('input[name="ans"]:checked').value)
+                        console.log(answers);
+                        $.ajax({ 
+                            type:'POST', 
+                            url:'{% url "stocks" %}', 
+                            data: 
+                            { 
+                                ans:answers, 
+                                csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val() 
+                            }, 
+                            success:function(data){ 
+                                    document.querySelector('.stocks-list__item-title').innerHTML = data;
+                                    } 
+                            }) 
+                        }); 
+                </script> 
+                <li class="stocks-list__item">
+                    <h2 class="stocks-list__item-title">{{ result }}</h2>
+                </li>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
