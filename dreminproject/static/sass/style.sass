@@ -2,7 +2,9 @@
     padding: 0
     margin: 0
     box-sizing: border-box
-    scroll-behavior: smooth
+body
+    font-family: sans-serif
+    font-size: 24px
 .container
     max-width: 75%
     margin: 0 auto
@@ -16,18 +18,13 @@
     font-size: 16px
     font-style: normal
     font-weight: 700
-    align-self: flex-end
-.btn
-    position: absolute
-    top: 50%
-    transform: translateY(-50%)
     cursor: pointer
+.button
     &-prev
-        left: 10px
-    &-next
-        right: 10px
+        margin-right: 10px
 .button-submit
     display: none
+
 .form
     &-wrapper
         height: 100vh
@@ -36,13 +33,26 @@
         align-items: center
         flex-direction: column
     &-box
+        width: 66%
         box-shadow: 6px 8px 19px 5px rgba(34, 60, 80, 0.2)
         border-radius: 5px
         display: flex
+        justify-content: space-between
         flex-direction: column
         gap: 10px 0
-        padding: 20px
+        padding: 30px
         position: relative
+    &-tab
+        display: none
+    &-buttons
+        display: flex
+        justify-content: end
+    &-radio--wrapper
+        display: flex
+        align-items: center
+        margin-top: 10px
+        label
+            margin-left: 5px
 .stocks
     scroll-behavior: smooth
     padding-top: 50px
@@ -70,3 +80,5 @@
                 margin-right: auto
             &-info
                 font-size: 16px
+.active
+    display: block
