@@ -14,18 +14,7 @@ def stocks(request):
     if request.method == "POST":
         p = os.path.join(os.path.dirname(__file__), 'data.csv')
         df = pd.read_csv(p)
-        X = df.iloc[:, :-1].values
-        y = df.iloc[:, -1].values
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-        model = LinearRegression()
-        model.fit(X_train, y_train)
-        y_test_pred = model.predict(X_test)
-        test_mse = mean_squared_error(y_test, y_test_pred)
-        test_r2 = r2_score(y_test, y_test_pred)
-        input_data = np.array([list(map(int, request.POST.getlist('ans[]')))])
-        predictions = model.predict(input_data)
         data = list(map(int, request.POST.getlist('ans[]')))
-        print(df.columns)
         r = ''
         for i in range(len(data)):
             r += f'ans{i} == {data[i]} & '
