@@ -24,6 +24,12 @@ def stocks(request):
         test_r2 = r2_score(y_test, y_test_pred)
         input_data = np.array([list(map(int, request.POST.getlist('ans[]')))])
         predictions = model.predict(input_data)
-        res = round(*predictions)
-        return HttpResponse(res)
+        data = list(map(int, request.POST.getlist('ans[]')))
+        print(df.columns)
+        r = ''
+        for i in range(len(data)):
+            r += f'ans{i} == {data[i]} & '
+        r = r[:-2]
+        res = df.query(r)['res'].values
+        return HttpResponse(res[0])
     return render(request, "index.html")

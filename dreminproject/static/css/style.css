@@ -33,6 +33,11 @@ body {
 
 .button-submit {
   display: none;
+  margin-right: 10px;
+}
+
+.second-tab {
+  display: none;
 }
 
 .form-wrapper {
@@ -87,21 +92,7 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-}
-.stocks-list__item-img {
-  margin-right: 50px;
-  width: 400px;
-  height: 225px;
-  border-radius: 5px;
-}
-.stocks-list__item-title {
-  font-size: 20px;
-}
-.stocks-list__item-right {
-  margin-right: auto;
-}
-.stocks-list__item-info {
-  font-size: 16px;
+  display: none;
 }
 
 .active {

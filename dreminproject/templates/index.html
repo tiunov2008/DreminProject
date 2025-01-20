@@ -12,9 +12,9 @@
 <body>
     <div class="form" id="form">
         <div class="form-wrapper">
-            <form method="post" id="form-box" class="form-box"> 
+            <div class="form-box"> 
                 {% csrf_token %}
-                <div class="form-tab active" id="0">
+                <form class="form-tab active">
                     <span class="form-question">Как бы вы отреагировали, если бы потеряли часть денег, вложенных в инвестиции?</span>
                     <div class="form-radio--wrapper">
                         <input type="radio" name="ans" id="ans1-1" value="1" required>
@@ -28,8 +28,8 @@
                         <input type="radio" name="ans" id="ans1-3" value="3" required>
                         <label class="radio-label-3" for="ans1-3">C) Я готов рискнуть и потерять часть денег ради возможности заработать больше.</label>
                     </div>
-                </div>
-                <div class="form-tab" id="1">
+                </form>
+                <form class="form-tab">
                     <span class="form-question">Какой процент от сбережений планируете инвестировать ?
                     </span>
                     <div class="form-radio--wrapper">
@@ -48,8 +48,8 @@
                         <input type="radio" name="ans" id="ans2-4" value="4" required>
                         <label class="radio-label-4" for="ans2-4">D) до 15%</label>
                     </div>
-                </div>
-                <div class="form-tab" id="2">
+                </form>
+                <form class="form-tab">
                     <span class="form-question">Как бы вы поступили, если кто-то предложил вам инвестицию с обещанием очень высокой прибыли, но с риском потерять все деньги?
                     </span>
                     <div class="form-radio--wrapper">
@@ -65,8 +65,8 @@
                         <input type="radio" name="ans" id="ans3-3" value="3" required>
                         <label class="radio-label-3" for="ans3-3">C) Я бы согласился, если шанс на большую прибыль действительно высок.</label>
                     </div>
-                </div>
-                <div class="form-tab" id="3">
+                </form>
+                <form class="form-tab">
                     <span class="form-question">Как бы вы оценили свои знания в теме инвестиций?
                     </span>
                     <div class="form-radio--wrapper">
@@ -86,8 +86,8 @@
                         <input type="radio" name="ans" id="ans4-4" value="4" required>
                         <label class="radio-label-4" for="ans4-4">D) Я знаком с основами и готов начать инвестировать, хотя и не эксперт в этой области.</label>
                     </div>
-                </div>
-                <div class="form-tab" id="4">
+                </form>
+                <form class="form-tab">
                     <span class="form-question">При принятие решений вы часто пологаетесь на эмоции?</span>
                     <div class="form-radio--wrapper">
                         <input type="radio" name="ans" id="ans5-1" value="1" required>
@@ -101,8 +101,8 @@
                         <input type="radio" name="ans" id="ans5-3" value="3" required>
                         <label class="radio-label-3" for="ans5-3">C) Нет,всегда стараюсь принимать решения осознанно.</label>
                     </div>
-                </div>
-                <div class="form-tab" id="5">
+                </form>
+                <form method="post" id="final-form" class="form-tab">
                     <span class="form-question">Следите ли вы за финансовыми новостями?
                     </span>
                     <div class="form-radio--wrapper">
@@ -117,13 +117,205 @@
                         <input type="radio" name="ans" id="ans6-3" value="3" required>
                         <label class="radio-label-3" for="ans6-3">C) Да</label>
                     </div>
-                </div>
+                </form>
+
+                <form class="second-tab" id="0">
+                    <span class="form-question"> Сколько вам лет?</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="second-ans1-1" value="1" required>
+                        <label class="radio-label-1" for="second-ans1-1">A) 15-20</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="second-ans1-2" value="2" required>
+                        <label class="radio-label-2" for="second-ans1-2">B) 20-30</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="second-ans1-3" value="3" required>
+                        <label class="radio-label-3" for="second-ans1-3">C) 30-40</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="second-ans1-4" value="4" required>
+                        <label class="radio-label-4" for="second-ans1-4">D) 40-50</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="second-ans1-5" value="5" required>
+                        <label class="radio-label-5" for="second-ans1-5">E) 50+</label>
+                    </div>
+                </form>
+                <form class="second-tab" id="1">
+                    <span class="form-question"> Какие цели вы преследуете на бирже?</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-1" value="exit-1" required>
+                        <label class="radio-label-1" for="ans1-1">A) Получение опыта торговли на бирже</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-2" value="exit-2" required>
+                        <label class="radio-label-2" for="ans1-2">B) Заработок карманных денег</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-3" value="exit-0" required>
+                        <label class="radio-label-3" for="ans1-3">C) Высокодоходный вклад</label>
+                    </div>
+                </form>
+                <form class="second-tab" id="2">
+                    <span class="form-question"> Какие цели вы преследуете на бирже?</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-1" value="2-1" required>
+                        <label class="radio-label-1" for="ans1-1">A) Основной заработок</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-2" value="2-2" required>
+                        <label class="radio-label-2" for="ans1-2">B) Пассивный доход</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-3" value="exit-0" required>
+                        <label class="radio-label-3" for="ans1-3">C) Высокодоходный вклад</label>
+                    </div>
+                </form>
+                <form class="second-tab" id="2-1">
+                    <span class="form-question"> Есть ли у вас финансовые обязательства(Ипотека, кредиты и т.п.)?</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-1" value="exit-3" required>
+                        <label class="radio-label-1" for="ans1-1">A) Наличие долговых обязательств</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-2" value="exit-4" required>
+                        <label class="radio-label-2" for="ans1-2">B) Нет обязательств</label>
+                    </div>
+                </form>
+                <form class="second-tab" id="2-2">
+                    <span class="form-question"> Выберите наиболее подходящий вам вариант.</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-1" value="exit-5" required>
+                        <label class="radio-label-1" for="ans1-1">A) Сохранение денег от инфляции(на бирже)</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-2" value="exit-6" required>
+                        <label class="radio-label-2" for="ans1-2">B) Доходность превышающая инфляцию, но имеющая большие риски(на бирже)</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-3" value="exit-0" required>
+                        <label class="radio-label-3" for="ans1-3">C) Высокодоходный вклад</label>
+                    </div>
+                </form>
+                <form class="second-tab" id="3">
+                    <span class="form-question"> Какие цели вы преследуете на бирже?</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-1" value="3-1" required>
+                        <label class="radio-label-1" for="ans1-1">A) Основной заработок</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-2" value="3-2" required>
+                        <label class="radio-label-2" for="ans1-2">B) Пассивный доход</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-3" value="exit-0" required>
+                        <label class="radio-label-3" for="ans1-3">C) Накопительный счëт для ребёнка</label>
+                    </div>
+                </form>
+                <form class="second-tab" id="3-1">
+                    <span class="form-question">Есть ли у вас финансовые обязательства(Ипотека, кредиты и т.п.)?</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-1" value="exit-7" required>
+                        <label class="radio-label-1" for="ans1-1">A) Наличие долговых обязательств</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-2" value="exit-8" required>
+                        <label class="radio-label-2" for="ans1-2">B) Нет обязательств</label>
+                    </div>
+                </form>
+                <form class="second-tab" id="3-2">
+                    <span class="form-question"> Выберите наиболее подходящий вам вариант.</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-1" value="exit-9" required>
+                        <label class="radio-label-1" for="ans1-1">A) Сохранение денег от инфляции(на бирже)</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-2" value="exit-10" required>
+                        <label class="radio-label-2" for="ans1-2">B) Доходность превышающая инфляцию, но имеющая большие риски(на бирже)</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-3" value="exit-0" required>
+                        <label class="radio-label-3" for="ans1-3">C) Высокодоходный вклад</label>
+                    </div>
+                </form>
+                <form class="second-tab" id="4">
+                    <span class="form-question"> Какие цели вы преследуете на бирже?</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-1" value="4-1" required>
+                        <label class="radio-label-1" for="ans1-1">A) Основной заработок</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-2" value="4-2" required>
+                        <label class="radio-label-2" for="ans1-2">B) Пассивный доход</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-3" value="exit-0" required>
+                        <label class="radio-label-3" for="ans1-3">C) Накопительный счëт для ребёнка</label>
+                    </div>
+                </form>
+                <form class="second-tab" id="4-1">
+                    <span class="form-question">Есть ли у вас финансовые обязательства(Ипотека, кредиты и т.п.)?</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-1" value="exit-11" required>
+                        <label class="radio-label-1" for="ans1-1">A) Наличие долговых обязательств</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-2" value="exit-12" required>
+                        <label class="radio-label-2" for="ans1-2">B) Нет обязательств</label>
+                    </div>
+                </form>
+                <form class="second-tab" id="4-2">
+                    <span class="form-question"> Выберите наиболее подходящий вам вариант.</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-1" value="exit-13" required>
+                        <label class="radio-label-1" for="ans1-1">A) Сохранение денег от инфляции(на бирже)</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-2" value="exit-14" required>
+                        <label class="radio-label-2" for="ans1-2">B) Доходность превышающая инфляцию, но имеющая большие риски(на бирже)</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-3" value="exit-0" required>
+                        <label class="radio-label-3" for="ans1-3">C) Высокодоходный вклад</label>
+                    </div>
+                </form>
+                <form class="second-tab" id="5">
+                    <span class="form-question"> Какие цели вы преследуете на бирже?</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-1" value="exit-15" required>
+                        <label class="radio-label-1" for="ans1-1">A) Основной заработок</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-2" value="5-1" required>
+                        <label class="radio-label-2" for="ans1-2">B) Пассивный доход</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-3" value="exit-0" required>
+                        <label class="radio-label-3" for="ans1-3">C) Накопительный счëт для ребёнка</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-4" value="exit-18" required>
+                        <label class="radio-label-4" for="ans1-4">D) Пенсионные накопления</label>
+                    </div>
+                </form>
+                <form class="second-tab" id="5-2">
+                    <span class="form-question"> Выберите наиболее подходящий вам вариант.</span>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-1" value="exit-16" required>
+                        <label class="radio-label-1" for="ans1-1">A) Сохранение денег от инфляции(на бирже)</label>
+                    </div>
+                    <div class="form-radio--wrapper">
+                        <input type="radio" name="ans" id="ans1-2" value="exit-17" required>
+                        <label class="radio-label-2" for="ans1-2">B) Доходность превышающая инфляцию, но имеющая большие риски(на бирже)</label>
+                    </div>
+                </form>
                 <div class="form-buttons">
                     <span class="button button-prev" style="display: none;">Назад</span>
                     <button class="button button-submit" type="submit">Отправить</button>
                     <span class="button button-next">Далее</span>
                 </div>
-            </form>
+            </div>
             <script src="https://code.jquery.com/jquery-3.5.1.js" 
                     integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
                     crossorigin="anonymous"></script> 
@@ -168,10 +360,14 @@
                         'C) Да.',
                     ],
                 ];
-                $(document).on('submit','#form-box',function(e){ 
+                $(document).on('submit','#final-form',function(e){ 
                     e.preventDefault(); 
-                    answers.push(document.querySelector('input[name="ans"]:checked').value)
-                    console.log(answers);
+                    let tabs = [...document.querySelectorAll('.form-tab')];
+                    let answers = [];
+                    tabs.forEach(tab=>{
+                        answers.push(tab.querySelector('input[name="ans"]:checked').value)
+                    });
+                    
                     $.ajax({ 
                         type:'POST', 
                         url:'{% url "stocks" %}', 
@@ -189,6 +385,7 @@
 
             <li class="stocks-list__item">
                 <h2 class="stocks-list__item-title">{{ result }}</h2>
+                <h2>НЕ ЯВЛЯЕТСЯ ИНДИВИДУАЛЬНОЙ ИНВЕСТИЦИОННОЙ РЕКОМЕНДАЦИЕЙ</h2>
             </li>
         </div>
     </div>
