@@ -312,7 +312,7 @@
                 </form>
                 <div class="form-buttons">
                     <span class="button button-prev" style="display: none;">Назад</span>
-                    <button class="button button-submit" type="submit">Отправить</button>
+                    <button class="button button-submit" id='button-submit' type="submit">Отправить</button>
                     <span class="button button-next">Далее</span>
                 </div>
             </div>
@@ -360,7 +360,7 @@
                         'C) Да.',
                     ],
                 ];
-                $(document).on('submit','#final-form',function(e){ 
+                $(document).on('click','#button-submit',function(e){ 
                     e.preventDefault(); 
                     let tabs = [...document.querySelectorAll('.form-tab')];
                     let answers = [];
@@ -377,6 +377,8 @@
                             csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val() 
                         }, 
                         success:function(data){ 
+                            console.log(data);
+                            console.log(document.querySelector('.stocks-list__item-title'));
                                 document.querySelector('.stocks-list__item-title').innerHTML = data;
                                 } 
                         }) 

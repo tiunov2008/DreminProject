@@ -2,10 +2,6 @@ from __future__ import print_function
 import os
 from django.shortcuts import render, HttpResponse
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
-import numpy as np
 def homepage(request):
     return render(request, 'index.html')
 
