@@ -115,12 +115,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
           }
           if(form_r.length == 4){
-            document.querySelector('.stocks-list__item').innerHTML = 'Мы советуваем вам вложить ' + stock + '% в акции, ' + bonds + '% в облигации, ' + funds + '% в фонды и ' + form_r[3] + '% в фьючерсы';
+            document.querySelector('.stocks-list__item-title').innerHTML = 'Мы советуваем вам вложить ' + stock + '% в акции, ' + bonds + '% в облигации, ' + funds + '% в фонды и ' + form_r[3] + '% в фьючерсы';
           }else{
-            document.querySelector('.stocks-list__item').innerHTML = 'Мы советуваем вам вложить ' + stock + '% в акции, ' + bonds + '% в облигации, ' + funds + '% в фонды';
+            document.querySelector('.stocks-list__item-title').innerHTML = 'Мы советуваем вам вложить ' + stock + '% в акции, ' + bonds + '% в облигации, ' + funds + '% в фонды';
           }
         }else{
-          document.querySelector('.stocks-list__item').innerHTML = 'Мы бы порекомендовали вам открыть вклад в банке';
+          document.querySelector('.stocks-list__item-title').innerHTML = 'Мы бы порекомендовали вам открыть вклад в банке';
         }
         document.querySelector('.form-box').style.display = 'none';
         document.querySelector('.stocks-list__item').style.display = 'block';
